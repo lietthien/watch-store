@@ -33,7 +33,7 @@
 		<property name="driverClassName"
 			value="com.mysql.cj.jdbc.Driver"></property>
 		<property name="url"
-			value="jdbc:mysql://sql6.freemysqlhosting.net/sql6503070?useUnicode=yes;characterEncoding=UTF-8"></property>
+			value="jdbc:mysql://sql6.freemysqlhosting.net:3306/sql6503070?useUnicode=yes;characterEncoding=UTF-8"></property>
 		<property name="username" value="sql6503070"></property>
 		<property name="password" value="1234"></property>
 	</bean>
