@@ -19,7 +19,7 @@ public class ProductRepositoryIpm implements ProductRepository {
 	private NamedParameterJdbcTemplate template;
 
 	public List<Product> getProductForHome(String status, String gendertype) {
-		String sql = "SELECT * FROM watchstore.product WHERE status = :status and gendertype=:gendertype ORDER BY RAND() LIMIT 8";
+		String sql = "SELECT * FROM sql6503070.product WHERE status = :status and gendertype=:gendertype ORDER BY RAND() LIMIT 8";
 		Map<String, Object> paramMap = new HashMap<String, Object>();
 		paramMap.put("status", status);
 		paramMap.put("gendertype", gendertype);
@@ -27,14 +27,14 @@ public class ProductRepositoryIpm implements ProductRepository {
 	}
 
 	public Product getProductById(int productid) {
-		String sql = "SELECT * FROM watchstore.product WHERE productid = :productid";
+		String sql = "SELECT * FROM sql6503070.product WHERE productid = :productid";
 		Map<String, Object> paramMap = new HashMap<String, Object>();
 		paramMap.put("productid", productid);
 		return template.queryForObject(sql, paramMap, new ProductMapper());
 	}
 
 	public List<Product> getProductsByStatusAndGender(String status, String gendertype) {
-		String sql = "SELECT * FROM watchstore.product WHERE status = :status and gendertype= :gendertype ORDER BY RAND()";
+		String sql = "SELECT * FROM sql6503070.product WHERE status = :status and gendertype= :gendertype ORDER BY RAND()";
 		Map<String, Object> paramMap = new HashMap<String, Object>();
 		paramMap.put("status", status);
 		paramMap.put("gendertype", gendertype);
@@ -42,21 +42,21 @@ public class ProductRepositoryIpm implements ProductRepository {
 	}
 
 	public List<Product> getProductByBrand(String brand) {
-		String sql = "SELECT * FROM watchstore.product WHERE brand = :brand ORDER BY RAND()";
+		String sql = "SELECT * FROM sql6503070.product WHERE brand = :brand ORDER BY RAND()";
 		Map<String, Object> paramMap = new HashMap<String, Object>();
 		paramMap.put("brand", brand);
 		return template.query(sql, paramMap, new ProductMapper());
 	}
 	
 	public List<Product> getSwitzerlandProduct(String original) {
-		String sql= "SELECT * FROM watchstore.product where original= :original ORDER BY RAND()";
+		String sql= "SELECT * FROM sql6503070.product where original= :original ORDER BY RAND()";
 		Map<String, Object> paramMap =new HashMap<String, Object>();
 		paramMap.put("original", original);
 		return template.query(sql, paramMap, new ProductMapper());
 	}
 	
 	public List<Product> filterProductByBrand(String gendertype, String brand) {
-		String sql="SELECT * FROM watchstore.product WHERE gendertype =:gendertype and brand = :brand ORDER BY RAND()";
+		String sql="SELECT * FROM sql6503070.product WHERE gendertype =:gendertype and brand = :brand ORDER BY RAND()";
 		Map<String, Object> paramMap =new HashMap<String, Object>();
 		paramMap.put("gendertype", gendertype);
 		paramMap.put("brand", brand);
@@ -64,7 +64,7 @@ public class ProductRepositoryIpm implements ProductRepository {
 	}
 	
 	public List<Product> filterProductListByPrice(String gendertype, int minprice, int maxprice) {
-		String sql= "SELECT * FROM watchstore.product where gendertype=:gendertype and discountprice between :minprice and :maxprice ORDER BY RAND()";
+		String sql= "SELECT * FROM sql6503070.product where gendertype=:gendertype and discountprice between :minprice and :maxprice ORDER BY RAND()";
 		Map<String, Object> paramMap =new HashMap<String, Object>();
 		paramMap.put("gendertype",gendertype);
 		paramMap.put("minprice", minprice);
@@ -74,7 +74,7 @@ public class ProductRepositoryIpm implements ProductRepository {
 
 
 	public List<Product> getProductByGender(String gendertype) {
-	String sql ="SELECT * FROM watchstore.product where gendertype=:gendertype ORDER BY RAND()";
+	String sql ="SELECT * FROM sql6503070.product where gendertype=:gendertype ORDER BY RAND()";
 	Map<String, Object> paramMap =new HashMap<String, Object>();
 	paramMap.put("gendertype",gendertype);
 	return template.query(sql, paramMap, new ProductMapper());
